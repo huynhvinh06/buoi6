@@ -1,12 +1,14 @@
 import re
-chuoi= input("Nhap vao mot chuoi: ")
 
-def NegativeNumberInString(str):
-    so_nguyen_am= 0
-    s= re.findall(r"-?\d+", str)
-    for i in s:
-        if int(i) < 0:
-            so_nguyen_am+=1
+chuoi= input("Nhap vao 1 chuoi: ")
+
+def NegativeNumberInStrings(str):
+    so_nguyen_am= re.findall(r"\b-[0-9]+", str)
     return so_nguyen_am
 
-print("So nguyen am trong chuoi la: ",NegativeNumberInString(chuoi))
+danh_sach= NegativeNumberInStrings(chuoi)
+
+print("Cac so nguyen am la: ")
+
+for i in danh_sach:
+    print(i, end="\t")
